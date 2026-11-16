@@ -1,0 +1,214 @@
+---
+name: Obsidian Precision FX
+colors:
+  surface: '#131313'
+  surface-dim: '#131313'
+  surface-bright: '#3a3939'
+  surface-container-lowest: '#0e0e0e'
+  surface-container-low: '#1c1b1b'
+  surface-container: '#201f1f'
+  surface-container-high: '#2a2a2a'
+  surface-container-highest: '#353534'
+  on-surface: '#e5e2e1'
+  on-surface-variant: '#c2c6d5'
+  inverse-surface: '#e5e2e1'
+  inverse-on-surface: '#313030'
+  outline: '#8c909e'
+  outline-variant: '#424753'
+  surface-tint: '#acc7ff'
+  primary: '#acc7ff'
+  on-primary: '#002f67'
+  primary-container: '#5695fe'
+  on-primary-container: '#002d64'
+  inverse-primary: '#005bbe'
+  secondary: '#4ae08d'
+  on-secondary: '#00391d'
+  secondary-container: '#00b86a'
+  on-secondary-container: '#004122'
+  tertiary: '#ffb3ae'
+  on-tertiary: '#68000b'
+  tertiary-container: '#ff615d'
+  on-tertiary-container: '#65000a'
+  error: '#ffb4ab'
+  on-error: '#690005'
+  error-container: '#93000a'
+  on-error-container: '#ffdad6'
+  primary-fixed: '#d7e2ff'
+  primary-fixed-dim: '#acc7ff'
+  on-primary-fixed: '#001a40'
+  on-primary-fixed-variant: '#004491'
+  secondary-fixed: '#6bfda7'
+  secondary-fixed-dim: '#4ae08d'
+  on-secondary-fixed: '#00210f'
+  on-secondary-fixed-variant: '#00522c'
+  tertiary-fixed: '#ffdad7'
+  tertiary-fixed-dim: '#ffb3ae'
+  on-tertiary-fixed: '#410004'
+  on-tertiary-fixed-variant: '#910816'
+  background: '#131313'
+  on-background: '#e5e2e1'
+  surface-variant: '#353534'
+typography:
+  display-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 32px
+    fontWeight: '600'
+    lineHeight: 40px
+    letterSpacing: -0.02em
+  display-lg-mobile:
+    fontFamily: Hanken Grotesk
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+    letterSpacing: -0.01em
+  headline-sm:
+    fontFamily: Hanken Grotesk
+    fontSize: 16px
+    fontWeight: '600'
+    lineHeight: 24px
+  body-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 22px
+  body-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 18px
+  body-sm:
+    fontFamily: Hanken Grotesk
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+  label-data:
+    fontFamily: JetBrains Mono
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  label-data-sm:
+    fontFamily: JetBrains Mono
+    fontSize: 11px
+    fontWeight: '400'
+    lineHeight: 14px
+    letterSpacing: 0.04em
+  label-caps:
+    fontFamily: Hanken Grotesk
+    fontSize: 10px
+    fontWeight: '700'
+    lineHeight: 12px
+    letterSpacing: 0.08em
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  gutter: 0.75rem
+  gutter-desktop: 1rem
+  margin: 0.75rem
+  margin-desktop: 1.5rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 0.75rem
+  space-lg: 1rem
+  space-xl: 1.5rem
+---
+
+## Brand & Style
+The brand personality embodies institutional-grade rigor, precision, and focus. Built for serious quantitative forex analysts and tactical session traders, the interface minimizes ocular fatigue through an ultra-deep obsidian workspace while highlighting actionable signals with surgical luminescence. 
+
+The aesthetic is high-density dark minimalism fused with technical dashboard clarity. It rejects extraneous ornament in favor of strict grid alignment, micro-borders, razor-sharp status contrasts, and controlled ambient glows that emulate high-end financial hardware and quantitative lab terminals. Every element signals accuracy, speed, and analytical power.
+
+## Colors
+The palette operates on absolute black `#030303` as the foundation layer, establishing an ultra-deep canvas that maximizes contrast for complex data series.
+
+- **Primary (`#5695fe`):** Interactive selections, active tab underlines, execution highlights, and focused indicators.
+- **Secondary (`#35d07f`):** Mint emerald dedicated to positive return rates, profitable pips, win-streak indicators, and active session badges.
+- **Tertiary (`#ef5350`):** Sharp crimson designated for drawdown metrics, stop-losses, losing sessions, and critical risk thresholds.
+- **Neutral Surface Palette:**
+  - Base Ground: `#030303`
+  - Sub-panel Base: `#0a0a0a`
+  - Elevated Card / Tool Surfaces: `#111111`
+  - Border Accents: `rgba(255, 255, 255, 0.08)`
+  - Muted Hairlines: `rgba(255, 255, 255, 0.04)`
+  - Text Primary: `#EDEDED`
+  - Text Secondary: `#9A9A9A`
+  - Text Muted: `#555555`
+
+## Typography
+Typography is split purposefully between structural interface copy and quantitative data presentation.
+
+- **Primary Interface Font (`Hanken Grotesk`):** Delivers clean geometry, crisp horizontal metrics, and high legibility at micro sizes without distraction. Used across navigation, modal headers, card titles, and general prose.
+- **Monospace Financial Engine (`JetBrains Mono`):** Applied to currency pairs (e.g., `EUR/USD`, `GBP/JPY`), tick values, timecodes, order quantities, and performance matrices. Strict column alignment in data tables prevents layout jitter during streaming price action or replay scrubbing.
+- Text transforms: Upper-case tracking (`letter-spacing: 0.08em`) is strictly reserved for `label-caps` in column headers and badge categories.
+
+## Layout & Spacing
+The layout follows a fluid-dock grid calibrated for high data density without perceptual clutter.
+
+- **Grid Architecture:** Multi-pane workspace architecture optimized for full-viewport displays (1440px+). Utilizes a horizontal command strip, dual-dock strategy panels (left/right collapsible rails), and a core viewport for replay charts and backtest execution timelines.
+- **Density Control:** Internal component paddings rely on `space-xs` (4px) and `space-sm` (8px) to maximize screen real estate for execution metrics, while module shells enforce `space-md` (12px) and `space-lg` (16px) bounding padding to guarantee structured breathing room.
+- **Responsive Adaptations:**
+  - **Desktop (≥ 1280px):** 12-column persistent workspace; charts lock to 8 columns with 4 columns distributed to trade-log inspection and equity curves.
+  - **Tablet (768px - 1279px):** 6-column collapsible drawers; auxiliary metrics move to sliding side-sheets or tabbed lower decks.
+  - **Mobile (< 768px):** Single-column stacked deck; chart viewport locks to top with sticky bottom sheets for position management and metric summaries.
+
+## Elevation & Depth
+Elevation in this dark environment is established through luminous layering and surface boundaries rather than heavy drop shadows.
+
+- **Level 0 (Base Ground):** `#030303` - Base canvas holding the entire application frame.
+- **Level 1 (Panels & Toolbars):** `#0a0a0a` with a 1px border of `rgba(255, 255, 255, 0.06)`.
+- **Level 2 (Analytical Cards & Floating Windows):** `#111111` bounded by `rgba(255, 255, 255, 0.08)`. Subtle diffuse ambient shadow: `0 4px 20px -2px rgba(0, 0, 0, 0.7)`.
+- **Accent Glows:** 
+  - Primary interaction glow: `0 0 16px -4px rgba(86, 149, 254, 0.25)`.
+  - Profit state glow: `0 0 16px -4px rgba(53, 208, 127, 0.2)`.
+  - Drawdown alert glow: `0 0 16px -4px rgba(239, 83, 80, 0.25)`.
+- **Dividers & Outlines:** Low-contrast hairline dividers (`rgba(255, 255, 255, 0.06)`) are used exclusively to separate table cells, chart panes, and docked widgets without adding visual weight.
+
+## Shapes
+The design uses a restrained, compact shape system (`roundedness: 1`) to preserve an engineered, instrumentation-grade feel:
+
+- **Base Components (Inputs, Tool Buttons, Table Rows):** 4px (`0.25rem`) border radius. This keeps edge boundaries crisp, aligning seamlessly with numeric data tables and Candlestick interfaces.
+- **Containers & Cards:** 8px (`0.5rem`) for analytical cards, modal windows, and flyout popovers.
+- **Pills & Status Dots:** Fully rounded (`9999px`) applied strictly to session status indicators (e.g., London/NY open dots) and micro tags.
+
+## Components
+
+### Buttons & Action Triggers
+- **Primary Action (Execute/Backtest):** `#5695fe` solid fill, `#ffffff` label text (`JetBrains Mono`, 12px, 500), 4px radius, hover brightness transition (1.08x), soft blue glow outline on focus.
+- **Secondary / Panel Toggle:** `#111111` background, 1px border of `rgba(255, 255, 255, 0.08)`, text `#9A9A9A`, hover border `rgba(255, 255, 255, 0.2)`, text transitioning to `#EDEDED`.
+- **Destructive / Reset:** Background `#160b0c`, border `rgba(239, 83, 80, 0.2)`, text `#ef5350`.
+
+### Data Tables (Order Log & Trade History)
+- **Geometry:** Compact row height (32px), zero vertical cell borders, horizontal hairlines `rgba(255, 255, 255, 0.04)`.
+- **Typography:** Column headers in `label-caps` (`#555555`), numeric cells in `label-data` (`JetBrains Mono`), right-aligned numeric data, left-aligned symbols.
+- **Row States:** Active replay tick row receives a highlight background of `rgba(86, 149, 254, 0.06)` and a 2px left border accent of `#5695fe`.
+
+### Chips & Strategy Badges
+- **Long / Profit Tag:** Background `rgba(53, 208, 127, 0.1)`, text `#35d07f`, border `rgba(53, 208, 127, 0.25)`.
+- **Short / Loss Tag:** Background `rgba(239, 83, 80, 0.1)`, text `#ef5350`, border `rgba(239, 83, 80, 0.25)`.
+- **Session Chip (Neutral):** Background `#111111`, border `rgba(255, 255, 255, 0.08)`, text `#9A9A9A`.
+
+### Input Fields & Parameter Steppers
+- Height: 32px for micro-controls, 36px standard.
+- Background: `#070707`, border: 1px `rgba(255, 255, 255, 0.08)`.
+- Focus State: Border color transitions to `#5695fe` with zero layout shift; subtle ring `rgba(86, 149, 254, 0.15)`.
+- Monospace font assignment for lot sizing, slippage points, and R:R ratios.
+
+### Analytics Cards & Metric Tiles
+- Surface: `#0a0a0a` with elevated nested metric pods at `#111111`.
+- Header: 12px uppercase title (`#555555`), inline sparkline or delta badge at top right.
+- Metric Display: `Hanken Grotesk` 20px semi-bold stat with positive/negative mint/crimson indicator accents.
+
+### Replay Scrubbing & Playback Controller
+- Docked footer element surfaced in `#0a0a0a` with top border `rgba(255, 255, 255, 0.08)`.
+- Scrub Track: 4px rail (`#1a1a1a`) with `#5695fe` played buffer and `#35d07f` trade execution marker pins along the time axis.
