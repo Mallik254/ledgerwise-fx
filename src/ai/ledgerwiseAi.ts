@@ -296,12 +296,63 @@ class LedgerwiseAiController {
       .ai-workspace { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr); gap: 14px; align-items: start; }
       @media (max-width: 1080px) { .ai-workspace { grid-template-columns: 1fr; } }
 
-      .ai-panel { display: flex; flex-direction: column; min-height: 580px; max-height: 76vh; padding: 0; overflow: hidden; }
+      .ai-panel {
+        display: flex;
+        flex-direction: column;
+        height: 620px;
+        min-height: 420px;
+        max-height: calc(100vh - 160px);
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--card);
+      }
+      .ai-landing-hero {
+        margin-bottom: 14px;
+        padding: 16px 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(95, 227, 179, 0.22);
+        background: linear-gradient(135deg, rgba(95, 227, 179, 0.06) 0%, rgba(125, 184, 255, 0.04) 50%, rgba(21, 22, 26, 0.95) 100%);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        display: flex; flex-direction: column; gap: 14px;
+      }
+      .ai-landing-stats {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+      }
+      .ai-hero-stat {
+        display: flex; flex-direction: column; gap: 3px;
+        padding: 10px 14px; border-radius: 10px;
+        background: var(--card-soft); border: 1px solid var(--line);
+      }
+      .ai-hero-k { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+      .ai-hero-v { font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--mono); }
+      .ai-hero-v.mint { color: var(--mint); }
+      .ai-hero-v.sky { color: var(--sky); }
+      .ai-hero-v.amber { color: var(--amber); }
+      .ai-hero-sub { font-size: 11px; color: var(--muted-2); }
+      .ai-landing-presets {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px;
+      }
+      .ai-landing-preset-btn {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 13px; border-radius: 10px;
+        background: var(--inset); border: 1px solid var(--line-2);
+        color: var(--text); text-align: left; cursor: pointer;
+        transition: border-color .15s, background .15s, transform .1s;
+      }
+      .ai-landing-preset-btn:hover {
+        border-color: var(--mint-line); background: var(--card-2); transform: translateY(-1px);
+      }
+      .ai-preset-icon { font-size: 18px; line-height: 1; }
+      .ai-preset-title { font-size: 12px; font-weight: 650; color: var(--text); }
+      .ai-preset-desc { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
       .ai-toolbar {
-        padding: 14px 18px;
+        padding: 12px 18px;
         border-bottom: 1px solid var(--line);
         background: var(--card-soft);
-        display: flex; flex-direction: column; gap: 10px;
+        display: flex; flex-direction: column; gap: 9px;
+        flex-shrink: 0;
       }
       .ai-toolbar-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
       .ai-persona-group { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
@@ -334,9 +385,10 @@ class LedgerwiseAiController {
       .ai-search-toggle.active { background: var(--sky-soft); color: var(--sky); border-color: var(--sky-line); }
 
       .ai-thread {
-        flex: 1; overflow-y: auto; padding: 18px;
+        flex: 1 1 0%; overflow-y: auto; padding: 18px;
         display: flex; flex-direction: column; gap: 14px;
-        min-height: 280px;
+        min-height: 0;
+        overscroll-behavior: contain;
       }
       .ai-msg { display: flex; flex-direction: column; gap: 5px; max-width: 88%; }
       .ai-msg.user { align-self: flex-end; align-items: flex-end; }
@@ -488,16 +540,35 @@ class LedgerwiseAiController {
       }
       .ai-drawer-backdrop[hidden] { display: none; }
       .ai-drawer {
-        width: min(540px, 100vw); height: 100%;
-        background: var(--modal); border-left: 1px solid var(--line-2);
-        box-shadow: var(--shadow); display: flex; flex-direction: column;
+        width: min(450px, 88vw);
+        height: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        background: var(--modal);
+        border-left: 1px solid var(--line-2);
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
       }
       .ai-drawer-head {
-        padding: 16px 18px; border-bottom: 1px solid var(--line);
+        padding: 13px 18px;
+        border-bottom: 1px solid var(--line);
         background: var(--card-soft);
         display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        flex-shrink: 0;
       }
-      .ai-drawer .ai-panel { max-height: none; min-height: 0; flex: 1; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+      .ai-drawer .ai-panel {
+        max-height: none; min-height: 0; flex: 1 1 0%;
+        height: 100%; border: 0; border-radius: 0;
+        background: transparent; box-shadow: none;
+      }
+      .ai-composer {
+        flex-shrink: 0;
+        padding: 12px 16px;
+        border-top: 1px solid var(--line);
+        background: var(--card-soft);
+      }
     `;
     document.head.appendChild(style);
   }
@@ -827,13 +898,20 @@ class LedgerwiseAiController {
 
   renderPage(): string {
     this.mountStyles();
+    const snap = this.getSnapshot();
+    const topAcc = snap?.accounts[0];
+    const bufferLabel = topAcc ? topAcc.bufferFormatted : (snap?.totalEquityFormatted || '$0.00');
+    const bufferPct = topAcc ? `${topAcc.bufferPct.toFixed(0)}% room left` : 'Ready';
+    const dailyLabel = topAcc ? topAcc.dailyRemainingFormatted : '$0.00';
+    const searchStatus = this.prefs.useSearch ? `Search On (${this.getSearchBadgeSuffix()})` : 'Live FX Spot & Wires';
+
     return `
       <div class="page">
         <div class="page-head">
           <div>
-            <div class="page-eyebrow"><span class="dot"></span> Intelligence</div>
-            <h1 class="page-title">AI Desk</h1>
-            <p class="page-sub">Multi-turn coaching, live FX &amp; web macro grounding, and real-time voice conversations grounded in your ledger.</p>
+            <div class="page-eyebrow"><span class="dot"></span> Intelligence Command Desk</div>
+            <h1 class="page-title">AI Desk &amp; Copilot</h1>
+            <p class="page-sub">Dedicated trading intelligence grounded in your live prop drawdown buffers, trade execution history, and macro FX catalysts.</p>
           </div>
           <div class="page-actions">
             <div class="lane-switch" role="tablist" aria-label="AI Desk mode">
@@ -841,6 +919,61 @@ class LedgerwiseAiController {
               <button type="button" class="lane-btn ${this.activeTab === 'voice' ? 'active' : ''}" data-ai-act="tab" data-tab="voice">Live Voice</button>
             </div>
             <button type="button" class="btn btn-ghost btn-sm" data-ai-act="reset-chat">New thread</button>
+          </div>
+        </div>
+
+        <div class="ai-landing-hero">
+          <div class="ai-landing-stats">
+            <div class="ai-hero-stat">
+              <span class="ai-hero-k">Prop Drawdown Buffer</span>
+              <span class="ai-hero-v mint">${escapeAttr(bufferLabel)}</span>
+              <span class="ai-hero-sub">${escapeAttr(bufferPct)}</span>
+            </div>
+            <div class="ai-hero-stat">
+              <span class="ai-hero-k">Daily Loss Room</span>
+              <span class="ai-hero-v">${escapeAttr(dailyLabel)}</span>
+              <span class="ai-hero-sub">${topAcc ? `Account: ${escapeAttr(topAcc.name)}` : 'Active accounts'}</span>
+            </div>
+            <div class="ai-hero-stat">
+              <span class="ai-hero-k">Intelligence Engine</span>
+              <span class="ai-hero-v sky">${escapeAttr(this.prefs.model)}</span>
+              <span class="ai-hero-sub">Persona: ${escapeAttr(this.prefs.persona.toUpperCase())}</span>
+            </div>
+            <div class="ai-hero-stat">
+              <span class="ai-hero-k">Market Grounding</span>
+              <span class="ai-hero-v amber">${escapeAttr(searchStatus)}</span>
+              <span class="ai-hero-sub">ECB, Fed &amp; Live Feeds</span>
+            </div>
+          </div>
+          <div class="ai-landing-presets">
+            <button type="button" class="ai-landing-preset-btn" data-ai-act="preset-audit" data-kind="prop">
+              <span class="ai-preset-icon">🛡️</span>
+              <div>
+                <div class="ai-preset-title">Audit Prop Buffers</div>
+                <div class="ai-preset-desc">Daily room, max DD &amp; sizing</div>
+              </div>
+            </button>
+            <button type="button" class="ai-landing-preset-btn" data-ai-act="preset-audit" data-kind="leaks">
+              <span class="ai-preset-icon">⚡</span>
+              <div>
+                <div class="ai-preset-title">Find R-Expectancy Leaks</div>
+                <div class="ai-preset-desc">Grade adherence &amp; checklist discipline</div>
+              </div>
+            </button>
+            <button type="button" class="ai-landing-preset-btn" data-ai-act="preset-audit" data-kind="macro">
+              <span class="ai-preset-icon">🌐</span>
+              <div>
+                <div class="ai-preset-title">Live Macro &amp; News Brief</div>
+                <div class="ai-preset-desc">Central banks &amp; session catalysts</div>
+              </div>
+            </button>
+            <button type="button" class="ai-landing-preset-btn" data-ai-act="preset-audit" data-kind="payout">
+              <span class="ai-preset-icon">💰</span>
+              <div>
+                <div class="ai-preset-title">Payout Waterfall &amp; Runway</div>
+                <div class="ai-preset-desc">Split, tax reserve &amp; cashflow</div>
+              </div>
+            </button>
           </div>
         </div>
 
