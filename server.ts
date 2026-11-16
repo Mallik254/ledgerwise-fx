@@ -910,6 +910,37 @@ async function startServer() {
         });
       }
     } catch (err: unknown) {
+      const errStr = String(err instanceof Error ? err.message : err);
+      const isHighDemandOrOverload =
+        /high demand|overloaded|RESOURCE_EXHAUSTED|UNAVAILABLE|503|429|quota/i.test(errStr);
+
+      if (requestedModel !== 'gemini-3.1-flash-lite' && isHighDemandOrOverload) {
+        console.warn(
+          `[Gemini Auto-Fallback] ${requestedModel} high demand/busy. Falling back to gemini-3.1-flash-lite...`
+        );
+        try {
+          const ai = createGeminiClient(apiKey);
+          const fallbackResp = await ai.models.generateContent({
+            model: 'gemini-3.1-flash-lite',
+            contents,
+            config: {
+              systemInstruction,
+              thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+            },
+          });
+          res.json({
+            reply: fallbackResp.text ?? 'No response text generated.',
+            modelUsed: 'gemini-3.1-flash-lite (high-demand fallback)',
+            searchUsed: false,
+            sources: [],
+            searchQueries: [],
+          });
+          return;
+        } catch {
+          // If fallback fails, proceed to return friendly error
+        }
+      }
+
       const { status, message } = extractFriendlyError(err);
       res.status(status).json({ error: message });
     }

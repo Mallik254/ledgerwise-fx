@@ -112,19 +112,42 @@ export default async (req: Request) => {
       };
     });
 
-    const response = await ai.models.generateContent({
-      model: requestedModel,
-      contents,
-      config: {
-        systemInstruction,
-        thinkingConfig: { thinkingLevel },
-      },
-    });
+    let response;
+    let actualModel = requestedModel;
+
+    try {
+      response = await ai.models.generateContent({
+        model: requestedModel,
+        contents,
+        config: {
+          systemInstruction,
+          thinkingConfig: { thinkingLevel },
+        },
+      });
+    } catch (modelErr: unknown) {
+      const errStr = String(modelErr instanceof Error ? modelErr.message : modelErr);
+      const isHighDemandOrOverload =
+        /high demand|overloaded|RESOURCE_EXHAUSTED|UNAVAILABLE|503|429|quota/i.test(errStr);
+
+      if (requestedModel !== 'gemini-3.1-flash-lite' && isHighDemandOrOverload) {
+        actualModel = 'gemini-3.1-flash-lite (high-demand fallback)';
+        response = await ai.models.generateContent({
+          model: 'gemini-3.1-flash-lite',
+          contents,
+          config: {
+            systemInstruction,
+            thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+          },
+        });
+      } else {
+        throw modelErr;
+      }
+    }
 
     return new Response(
       JSON.stringify({
         reply: response.text ?? 'No response generated.',
-        modelUsed: requestedModel,
+        modelUsed: actualModel,
         searchUsed: false,
         sources: [],
       }),
